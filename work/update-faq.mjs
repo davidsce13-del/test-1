@@ -1,0 +1,3 @@
+import fs from 'node:fs';
+const path='outputs/mm2-site/dist/index.html';let s=fs.readFileSync(path,'utf8');
+const answers=['Choose a server card to see its details, then click join.','You can play with international friends using Roblox’s join feature, subject to the experience’s availability, your privacy settings, and available server space. Connection quality depends on your location and network.','Follow the official Murder Mistery 2 update pages for release details. The cards on this page reproduce the reference website and are not a live server-status service.'];let i=0;s=s.replace(/<p class="faq-answer">[\s\S]*?<\/p>/g,m=>i<3?`<p class="faq-answer">${answers[i++]}</p>`:m);fs.writeFileSync(path,s);console.log('Updated three FAQ answers');
